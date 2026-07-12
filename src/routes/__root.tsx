@@ -77,19 +77,23 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Кроссы.by — удобный каталог кроссовок adishop.by" },
+      { title: "Кроссовки adidsshop.by — удобный каталог" },
       {
         name: "description",
         content:
-          "Быстрый мобильный каталог кроссовок adishop.by: живые цены и скидки, поиск, фильтры и избранное.",
+          "Быстрый и удобный каталог кроссовок adidsshop.by: живые цены и скидки, поиск, фильтры и избранное.",
       },
-      { property: "og:title", content: "Кроссы.by — удобный каталог кроссовок" },
+      { property: "og:title", content: "Кроссовки adidsshop.by — удобный каталог" },
       {
         property: "og:description",
-        content: "Живые цены и скидки с adishop.by, быстрый поиск, фильтры и избранное.",
+        content: "Быстрый и удобный каталог кроссовок adidsshop.by: живые цены и скидки, поиск, фильтры и избранное.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Кроссовки adidsshop.by — удобный каталог" },
+      { name: "twitter:description", content: "Быстрый и удобный каталог кроссовок adidsshop.by: живые цены и скидки, поиск, фильтры и избранное." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/30b0952a-860c-47d1-bd01-954d207b7b96" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/30b0952a-860c-47d1-bd01-954d207b7b96" },
     ],
     links: [
       {
