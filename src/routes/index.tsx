@@ -113,7 +113,7 @@ function Index() {
               onChange={(e) => {
                 setSearchInput(e.target.value);
                 navigate({
-                  search: (prev) => ({ ...prev, q: e.target.value }),
+                  search: (prev: Record<string, unknown>) => ({ ...prev, q: e.target.value }),
                   replace: true,
                 });
               }}
@@ -129,7 +129,7 @@ function Index() {
             <button
               key={t}
               type="button"
-              onClick={() => navigate({ search: (prev) => ({ ...prev, tab: t }) })}
+              onClick={() => navigate({ search: (prev: Record<string, unknown>) => ({ ...prev, tab: t }) })}
               className={`shrink-0 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wide transition-colors ${
                 tab === t
                   ? "bg-primary text-primary-foreground"
@@ -141,7 +141,7 @@ function Index() {
           ))}
           <button
             type="button"
-            onClick={() => navigate({ search: (prev) => ({ ...prev, sale: !sale }) })}
+            onClick={() => navigate({ search: (prev: Record<string, unknown>) => ({ ...prev, sale: !sale }) })}
             className={`shrink-0 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wide transition-colors ${
               sale
                 ? "bg-sale text-sale-foreground"
@@ -161,7 +161,7 @@ function Index() {
         <select
           value={sort}
           onChange={(e) =>
-            navigate({ search: (prev) => ({ ...prev, sort: e.target.value as Sort }) })
+            navigate({ search: (prev: Record<string, unknown>) => ({ ...prev, sort: e.target.value as Sort }) })
           }
           className="bg-transparent text-xs font-semibold text-foreground outline-none"
         >
