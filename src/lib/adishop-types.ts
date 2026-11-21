@@ -27,6 +27,7 @@ export interface ProductDetail {
   discount: number | null;
   description: string[];
   images: string[];
+  availableSizes: string[];
   sourceUrl: string;
 }
 

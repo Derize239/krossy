@@ -18,6 +18,10 @@ export const Route = createFileRoute("/favorites")({
     meta: [
       { title: "Избранное — Кроссы.by" },
       { name: "description", content: "Сохранённые кроссовки: сортировка по скидке, фильтр наличия, обновление цен." },
+      { property: "og:title", content: "Избранное — Кроссы.by" },
+      { property: "og:description", content: "Сохранённые модели, актуальные скидки и наличие." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: FavoritesPage,
@@ -120,6 +124,7 @@ function FavoritesPage() {
             </p>
             <Link
               to="/"
+              search={{ q: "", tab: "all", sort: "default", sale: false }}
               className="mt-6 inline-block bg-primary px-5 py-2 text-sm font-bold uppercase text-primary-foreground"
             >
               В каталог

@@ -17,6 +17,10 @@ export const Route = createFileRoute("/notifications")({
     meta: [
       { title: "Уведомления — Кроссы.by" },
       { name: "description", content: "Изменения цен и наличия по избранным моделям." },
+      { property: "og:title", content: "Уведомления — Кроссы.by" },
+      { property: "og:description", content: "Изменения цен и наличия по избранным моделям." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: NotificationsPage,

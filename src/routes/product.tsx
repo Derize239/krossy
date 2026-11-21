@@ -17,6 +17,10 @@ export const Route = createFileRoute("/product")({
     meta: [
       { title: "Товар — Кроссы.by" },
       { name: "description", content: "Карточка кроссовок с актуальной ценой и наличием с adishop.by." },
+      { property: "og:title", content: "Товар — Кроссы.by" },
+      { property: "og:description", content: "Актуальная цена, скидка, наличие и размеры с adishop.by." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: ProductPage,
@@ -215,6 +219,19 @@ function ProductPage() {
               </div>
             ) : null}
 
+            {data.availableSizes.length > 0 ? (
+              <div className="space-y-2">
+                <h2 className="text-sm font-black uppercase tracking-wide">Размеры в наличии</h2>
+                <div className="flex flex-wrap gap-1.5">
+                  {data.availableSizes.map((size) => (
+                    <span key={size} className="border border-border px-2.5 py-1.5 text-xs font-semibold">
+                      {size}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+
             {data.description.length > 0 ? (
               <div className="space-y-2">
                 <h2 className="text-sm font-black uppercase tracking-wide">Описание</h2>
@@ -241,7 +258,7 @@ function ProductPage() {
 
       <BottomNav />
       {/* fallback link for a11y */}
-      <Link to="/" className="sr-only">
+      <Link to="/" search={{ q: "", tab: "all", sort: "default", sale: false }} className="sr-only">
         На главную
       </Link>
     </div>

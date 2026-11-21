@@ -12,6 +12,7 @@ export function BottomNav() {
       <div className="mx-auto flex max-w-lg">
         <Link
           to="/"
+          search={{ q: "", tab: "all", sort: "default", sale: false }}
           className="flex flex-1 flex-col items-center gap-0.5 py-2.5 text-muted-foreground"
           activeProps={{ className: "flex flex-1 flex-col items-center gap-0.5 py-2.5 text-foreground" }}
           activeOptions={{ exact: true }}

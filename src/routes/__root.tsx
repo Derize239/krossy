@@ -24,6 +24,7 @@ function NotFoundComponent() {
         <div className="mt-6">
           <Link
             to="/"
+            search={{ q: "", tab: "all", sort: "default", sale: false }}
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
             Go home
@@ -34,7 +35,7 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ error, reset }: { error: unknown; reset: () => void }) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
@@ -77,23 +78,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Кроссовки adidsshop.by — удобный каталог" },
+      { title: "Кроссовки adishop.by — удобный каталог" },
       {
         name: "description",
         content:
-          "Быстрый и удобный каталог кроссовок adidsshop.by: живые цены и скидки, поиск, фильтры и избранное.",
+          "Быстрый и удобный каталог кроссовок adishop.by: живые цены и скидки, поиск, фильтры и избранное.",
       },
-      { property: "og:title", content: "Кроссовки adidsshop.by — удобный каталог" },
+      { property: "og:title", content: "Кроссовки adishop.by — удобный каталог" },
       {
         property: "og:description",
-        content: "Быстрый и удобный каталог кроссовок adidsshop.by: живые цены и скидки, поиск, фильтры и избранное.",
+        content: "Быстрый и удобный каталог кроссовок adishop.by: живые цены и скидки, поиск, фильтры и избранное.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Кроссовки adidsshop.by — удобный каталог" },
-      { name: "twitter:description", content: "Быстрый и удобный каталог кроссовок adidsshop.by: живые цены и скидки, поиск, фильтры и избранное." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/30b0952a-860c-47d1-bd01-954d207b7b96" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/30b0952a-860c-47d1-bd01-954d207b7b96" },
+      { name: "twitter:title", content: "Кроссовки adishop.by — удобный каталог" },
+      { name: "twitter:description", content: "Быстрый и удобный каталог кроссовок adishop.by: живые цены и скидки, поиск, фильтры и избранное." },
       { name: "theme-color", content: "#000000" },
       { name: "apple-mobile-web-app-capable", content: "yes" },
       { name: "mobile-web-app-capable", content: "yes" },

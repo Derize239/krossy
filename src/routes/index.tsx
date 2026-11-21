@@ -27,12 +27,16 @@ export const Route = createFileRoute("/")({
   }),
   head: () => ({
     meta: [
-      { title: "Кроссовки adidsshop.by — удобный каталог" },
+      { title: "Кроссовки adishop.by — удобный каталог" },
       {
         name: "description",
         content:
-          "Быстрый и удобный каталог кроссовок adidsshop.by: живые цены и скидки, поиск, фильтры и избранное.",
+          "Быстрый и удобный каталог кроссовок adishop.by: живые цены и скидки, поиск, фильтры и избранное.",
       },
+      { property: "og:title", content: "Кроссовки adishop.by — удобный каталог" },
+      { property: "og:description", content: "Живые цены и скидки, поиск, фильтры и избранное." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: Index,
@@ -86,6 +90,7 @@ function Index() {
     // Guarantee category filter integrity: only items whose gender matches the active tabs
     const allowed = new Set<Gender>(activeGenders);
     list = list.filter((i) => allowed.has(i.gender));
+    list = [...new Map(list.map((item) => [item.id, item])).values()];
 
     const query = q.trim().toLowerCase();
     if (query) {
@@ -150,7 +155,7 @@ function Index() {
               onChange={(e) => {
                 setSearchInput(e.target.value);
                 navigate({
-                  search: (prev: Record<string, unknown>) => ({ ...prev, q: e.target.value }),
+                  search: (prev) => ({ ...prev, q: e.target.value }),
                   replace: true,
                 });
               }}
@@ -166,7 +171,7 @@ function Index() {
               key={t}
               type="button"
               onClick={() =>
-                navigate({ search: (prev: Record<string, unknown>) => ({ ...prev, tab: t }) })
+                navigate({ search: (prev) => ({ ...prev, tab: t }) })
               }
               className={`shrink-0 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wide transition-colors ${
                 tab === t
@@ -180,7 +185,7 @@ function Index() {
           <button
             type="button"
             onClick={() =>
-              navigate({ search: (prev: Record<string, unknown>) => ({ ...prev, sale: !sale }) })
+              navigate({ search: (prev) => ({ ...prev, sale: !sale }) })
             }
             className={`shrink-0 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wide transition-colors ${
               sale
@@ -201,7 +206,7 @@ function Index() {
           value={sort}
           onChange={(e) =>
             navigate({
-              search: (prev: Record<string, unknown>) => ({ ...prev, sort: e.target.value as Sort }),
+              search: (prev) => ({ ...prev, sort: e.target.value as Sort }),
             })
           }
           className="bg-transparent text-xs font-semibold text-foreground outline-none"

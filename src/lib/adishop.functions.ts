@@ -16,7 +16,9 @@ export const getCatalog = createServerFn({ method: "GET" })
 export const getProduct = createServerFn({ method: "GET" })
   .inputValidator((input: { url: string }) => {
     const url = input?.url ?? "";
-    if (!url.startsWith("catalog/") || !url.endsWith(".html") || url.includes("..")) {
+    const isCurrentUrl = /^product\/[A-Z0-9]+\/$/i.test(url);
+    const isLegacyUrl = url.startsWith("catalog/") && url.endsWith(".html") && !url.includes("..");
+    if (!isCurrentUrl && !isLegacyUrl) {
       throw new Error("Некорректная ссылка на товар");
     }
     return { url };

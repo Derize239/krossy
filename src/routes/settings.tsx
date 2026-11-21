@@ -15,6 +15,10 @@ export const Route = createFileRoute("/settings")({
     meta: [
       { title: "Настройки — Кроссы.by" },
       { name: "description", content: "Настройка интервала автообновления каталога." },
+      { property: "og:title", content: "Настройки — Кроссы.by" },
+      { property: "og:description", content: "Автообновление каталога и установка приложения на iPhone." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: SettingsPage,
